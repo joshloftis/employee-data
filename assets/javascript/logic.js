@@ -39,6 +39,8 @@ $("#submit-button").on("click", function(event) {
 database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
   // storing the snapshot.val() in a variable for convenience
   var sv = snapshot.val();
+  var today = moment();
+  var workMonths = moment(today).diff(sv.start, "months");
 
   // Console.loging the last user's data
   console.log(sv.name);
@@ -51,10 +53,11 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
   var tdname = $('<td>').text(sv.name);
   var tdrole = $('<td>').text(sv.role);
   var tdstart = $('<td>').text(sv.start);
-  var monthsWorked = $('<td>');
+  var monthsWorked = $('<td>').text(workMonths);
   var tdrate = $('<td>').text(sv.monRate);
-  var tdbilled = $('<td>');
+  var tdbilled = $('<td>').text(workMonths * sv.monRate);
   var tr = $('<tr>');
+
 
 tr.append(tdname)
   .append(tdrole)
