@@ -36,7 +36,7 @@ $("#submit-button").on("click", function(event) {
   $("#startdate").val("");
   $("#monthlyrare").val("");
 });
-database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
+database.ref().orderByChild("dateAdded").limitToLast(100).on("child_added", function(snapshot) {
   // storing the snapshot.val() in a variable for convenience
   var sv = snapshot.val();
 
@@ -54,13 +54,16 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
   var monthsWorked = $('<td>');
   var tdrate = $('<td>').text(sv.monRate);
   var tdbilled = $('<td>');
+  var tr = $('<tr>');
 
-  $('#employee-info').append(tdname)
+tr.append(tdname)
   .append(tdrole)
   .append(tdstart)
   .append(monthsWorked)
   .append(tdrate)
   .append(tdbilled);
+
+  $('#employee-info').append(tr);
 
   // Handle the errors
 }, function(errorObject) {
