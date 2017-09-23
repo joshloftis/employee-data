@@ -8,7 +8,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var db = firebase.database();
+var database = firebase.database();
 var name = "";
 var role = "";
 var start = "";
