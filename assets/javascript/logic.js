@@ -21,7 +21,7 @@ $("#submit-button").on("click", function(event) {
   name = $("#name").val().trim();
   role = $("#role").val().trim();
   start = $("#startdate").val().trim();
-  monRate = $("#monthlyrate").val().trim();
+  monRate = $("#monthlyrare").val().trim();
 
   // Code for handling the push
   database.ref().push({
