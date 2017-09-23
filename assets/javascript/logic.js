@@ -48,10 +48,19 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
   console.log(sv.dateAdded);
 
   // Change the HTML to reflect
-  $("#name").text(sv.name);
-  $("#role").text(sv.role);
-  $("#startdate").text(sv.start);
-  $("#monthlyrate").text(sv.monRate);
+  var tdname = $('<td>').text(sv.name);
+  var tdrole = $('<td>').text(sv.role);
+  var tdstart = $('<td>').text(sv.start);
+  var monthsWorked = $('<td>');
+  var tdrate = $('<td>').text(sv.monRate);
+  var tdbilled = $('<td>');
+
+  $('#employee-info').append(tdname)
+  .append(tdrole)
+  .append(tdstart)
+  .append(monthsWorked)
+  .append(tdrate)
+  .append(tdbilled);
 
   // Handle the errors
 }, function(errorObject) {
