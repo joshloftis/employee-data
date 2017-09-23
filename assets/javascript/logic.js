@@ -31,6 +31,10 @@ $("#submit-button").on("click", function(event) {
     monRate: monRate,
     dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
+  $("#name").val("");
+  $("#role").val("");
+  $("#startdate").val("");
+  $("#monthlyrare").val("");
 });
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
   // storing the snapshot.val() in a variable for convenience
