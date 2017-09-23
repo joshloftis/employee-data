@@ -36,7 +36,7 @@ $("#submit-button").on("click", function(event) {
   $("#startdate").val("");
   $("#monthlyrare").val("");
 });
-database.ref().orderByChild("dateAdded").limitToLast(100).on("child_added", function(snapshot) {
+database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
   // storing the snapshot.val() in a variable for convenience
   var sv = snapshot.val();
 
